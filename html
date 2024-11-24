@@ -1,19 +1,88 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css 2/styles.css">
-    <title>Mi Portafolio</title>
-</head>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meu Portfólio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css 2/styles.css">
+    </head>
 <body>
-    <header>
-        <h1>Mi Portafolio</h1>
-        <nav>
-            <button class="btn">Inicio</button>
-            <button class="btn">Proyectos</button>
-            <button class="btn">Contacto</button>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+        <h1>Meu Portfólio</h1>
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="location.href='#resume'">Resume</button>
+            <button class="nav-button" onclick="location.href='#projetos'">Projetos</button>
+        </div>
+    </div>
+</header>
+
+<!-- Resume -->
+<section id="resume" class="section">
+    <h2>Um pouco mais de mim!</h2>
+    <p class="text">
+        Oi, eu sou Yasmin, tenho 22 anos e sou apaixonada pelo universo do design. Atualmente, estou cursando Design na FMU, com foco em design industrial e de produto, mas minha curiosidade também me leva a explorar o design gráfico e o mundo das mídias digitais. Tenho experiência como freelancer, o que me permitiu trabalhar em projetos diversos, sempre com a intenção de criar soluções que sejam tanto estéticas quanto funcionais.
+        <br><br>
+        Sou uma pessoa calma e positiva, e acredito que esse equilíbrio me ajuda a abordar os desafios do design de forma criativa e eficiente.
+    </p>
+
+    <div class="icons">
+        <h3>SKILLS</h3>
+        <img src="images/raahh.png" alt="Icones das minhas habilidades" width="350">
+    </div>
+</section>
+
+<!-- Projetos -->
+<section id="projetos" class="section">
+    <h2>Meus Projetos</h2>
+    
+    <!-- Projeto 1 -->
+    <div class="project" onclick="toggleDetails(this)">
+        <h3>BARDI</h3>
+        <img src="images/proyeto 1 capa (1).png" alt="Capa do projeto Bardi">
+        <div class="project-details">
+            <img src="images/proyeto 1 capa (2).png" alt="Detalhe do projeto Bardi 1">
+            <img src="images/proyeto 1 capa (3).png" alt="Detalhe do projeto Bardi 2">
+            <img src="images/proyeto 1 capa (4).png" alt="Detalhe do projeto Bardi 3">
+            <img src="images/proyeto 1 capa (5).png" alt="Detalhe do projeto Bardi 4">
+        </div>
+    </div>
+    
+    <!-- Projeto 2 -->
+    <div class="project" onclick="toggleDetails(this)">
+        <h3>BANGERZ</h3>
+        <img src="images/N2 _ Projeto em Design Gráfico-1.png" alt="Capa do projeto Bangerz">
+        <div class="project-details">
+            <img src="images/N2 _ Projeto em Design Gráfico-1 CAPA.png" alt="Detalhe do projeto Bangerz 1">
+            <img src="images/N2 _ Projeto em Design Gráfico-2.png" alt="Detalhe do projeto Bangerz 2">
+            <img src="images/N2 _ Projeto em Design Gráfico-3.png" alt="Detalhe do projeto Bangerz 3">
+            <img src="images/N2 _ Projeto em Design Gráfico-4.png" alt="Detalhe do projeto Bangerz 4">
+            <img src="images/N2 _ Projeto em Design Gráfico-5.png" alt="Detalhe do projeto Bangerz 5">
+        </div>
+    </div>
+</section>
+
+<script>
+    // Função
+    function toggleDetails(project) {
+        const details = project.querySelector('.project-details');
+        const isOpen = project.classList.contains('open');
+
+       
+        document.querySelectorAll('.project.open').forEach(openProject => {
+            openProject.classList.remove('open');
+            openProject.querySelector('.project-details').style.maxHeight = '0';
+        });
+
+        if (!isOpen) {
+            project.classList.add('open');
+            const detailsHeight = details.scrollHeight + 'px';
+            details.style.maxHeight = detailsHeight;
+        }
+    }
+</script>
+
 </body>
 </html>
